@@ -61,7 +61,7 @@ class DoodleViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let request = NetworkRequest(withURL: "http://localhost/api/api.php", withHttpMethd: .GET)
         NetworkManager().startAPIRequest(with: request.objURLRequest, callBack: {(apiData:Any?, response:URLResponse?, error:Error?)->Void in
         
-            print("This is Data: ",apiData)
+            print("This is Data: ",apiData ?? "")
             
         })
         
@@ -155,6 +155,7 @@ class DoodleViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         
         doodlePad.image = nil
         photoButton.isHidden = false
+        doodlePad.arrImages.removeAll()
     }
     
     @IBAction func saveImage(_ sender: Any) {
@@ -188,6 +189,18 @@ class DoodleViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         }catch let error {
             print("Error: ",error)
         }
+        
+        /*
+        if let screenShot = self.view.capture() {
+        
+            print("This is String: ",FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].relativePath.appending("screenShot.png"))
+            
+            let _ = try? UIImagePNGRepresentation(screenShot)?.write(to: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("/screenShot.png"))
+        }*/
+        
+        
+        
+        
     }
     
     //MARK: - UIViewContoller Methods
@@ -300,4 +313,31 @@ class DoodleViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         collectionView.reloadData()
     }
     
+    @IBAction func unDoAction(){
+        
+        doodlePad.unDo()
+    }
+    
+}
+
+extension UIView {
+    func capture() -> UIImage? {
+        var image: UIImage?
+        
+        if #available(iOS 10.0, *) {
+            let format = UIGraphicsImageRendererFormat()
+            format.opaque = isOpaque
+            let renderer = UIGraphicsImageRenderer(size: frame.size, format: format)
+            image = renderer.image { context in
+                drawHierarchy(in: frame, afterScreenUpdates: true)
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(frame.size, isOpaque, UIScreen.main.scale)
+            drawHierarchy(in: frame, afterScreenUpdates: true)
+            image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+        }
+        
+        return image
+    }
 }

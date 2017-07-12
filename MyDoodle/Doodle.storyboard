@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Doodle View Controller-->
+        <!--Drawing Pad-->
         <scene sceneID="J2U-6f-a4K">
             <objects>
                 <viewController storyboardIdentifier="DoodleVC" id="iue-a5-Kw5" customClass="DoodleViewController" customModule="MyDoodle" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,22 +25,45 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4T-af-ZCA">
                                 <rect key="frame" x="5" y="69" width="365" height="50"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp1-sd-N7N">
+                                        <rect key="frame" x="0.0" y="5" width="91.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="VzD-FY-iLk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Undo"/>
+                                        <connections>
+                                            <action selector="unDoAction" destination="iue-a5-Kw5" eventType="touchUpInside" id="u0m-Gs-hD1"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DS0-Vg-Mlp">
-                                        <rect key="frame" x="5" y="5" width="115" height="40"/>
+                                        <rect key="frame" x="91.5" y="5" width="91.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0Pg-Gd-p3n"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Save Image"/>
                                         <connections>
                                             <action selector="saveImage:" destination="iue-a5-Kw5" eventType="touchUpInside" id="WNP-xJ-4l9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebx-pw-ilr">
-                                        <rect key="frame" x="125" y="5" width="115" height="40"/>
+                                        <rect key="frame" x="183" y="5" width="91.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="QHh-k9-Wl7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Clear Image"/>
                                         <connections>
                                             <action selector="clearImage:" destination="iue-a5-Kw5" eventType="touchUpInside" id="3F0-Hd-ghk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoC-cQ-PTD">
-                                        <rect key="frame" x="245" y="5" width="115" height="40"/>
+                                        <rect key="frame" x="274.5" y="5" width="91.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="xYz-v0-Mh0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Share Image"/>
                                         <connections>
                                             <action selector="shareImage:" destination="iue-a5-Kw5" eventType="touchUpInside" id="Y7U-2g-7lQ"/>
@@ -48,20 +72,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="DS0-Vg-Mlp" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="0Yn-ta-ILA"/>
+                                    <constraint firstItem="jp1-sd-N7N" firstAttribute="leading" secondItem="g4T-af-ZCA" secondAttribute="leading" id="4aj-5c-TWo"/>
+                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.25" id="5Bc-it-PBp"/>
                                     <constraint firstAttribute="height" constant="50" id="6oq-UY-h4T"/>
-                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="leading" secondItem="Ebx-pw-ilr" secondAttribute="trailing" constant="5" id="I22-ih-euF"/>
-                                    <constraint firstAttribute="bottom" secondItem="DS0-Vg-Mlp" secondAttribute="bottom" constant="5" id="P9E-xe-i2W"/>
-                                    <constraint firstItem="Ebx-pw-ilr" firstAttribute="leading" secondItem="DS0-Vg-Mlp" secondAttribute="trailing" constant="5" id="PKQ-tD-Cxl"/>
-                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="Rje-rg-LJi"/>
-                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="leading" secondItem="Ebx-pw-ilr" secondAttribute="trailing" constant="5" id="YCx-k8-m6X"/>
-                                    <constraint firstItem="Ebx-pw-ilr" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="YJE-ug-hWv"/>
-                                    <constraint firstItem="DS0-Vg-Mlp" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="fOA-5G-TXL"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ebx-pw-ilr" secondAttribute="bottom" constant="5" id="ffo-RO-u2e"/>
-                                    <constraint firstAttribute="bottom" secondItem="AoC-cQ-PTD" secondAttribute="bottom" constant="5" id="hSN-Db-hPi"/>
-                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="width" secondItem="Ebx-pw-ilr" secondAttribute="width" id="kaL-Lc-HuY"/>
-                                    <constraint firstItem="DS0-Vg-Mlp" firstAttribute="leading" secondItem="g4T-af-ZCA" secondAttribute="leading" constant="5" id="pHM-sM-pYe"/>
-                                    <constraint firstItem="DS0-Vg-Mlp" firstAttribute="width" secondItem="Ebx-pw-ilr" secondAttribute="width" id="veB-pR-g33"/>
-                                    <constraint firstAttribute="trailing" secondItem="AoC-cQ-PTD" secondAttribute="trailing" constant="5" id="xeO-OR-rHK"/>
+                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="leading" secondItem="Ebx-pw-ilr" secondAttribute="trailing" id="9ca-04-nqP"/>
+                                    <constraint firstItem="Ebx-pw-ilr" firstAttribute="leading" secondItem="DS0-Vg-Mlp" secondAttribute="trailing" id="NNn-dT-dFp"/>
+                                    <constraint firstItem="DS0-Vg-Mlp" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.25" id="QLc-Uq-XYj"/>
+                                    <constraint firstItem="Ebx-pw-ilr" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="Sg9-1e-bfM"/>
+                                    <constraint firstItem="Ebx-pw-ilr" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.25" id="U1Z-yY-eSh"/>
+                                    <constraint firstItem="DS0-Vg-Mlp" firstAttribute="leading" secondItem="jp1-sd-N7N" secondAttribute="trailing" id="db5-UI-Ll6"/>
+                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="jYm-lX-aiE"/>
+                                    <constraint firstItem="jp1-sd-N7N" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="k3S-Iq-RAV"/>
+                                    <constraint firstItem="jp1-sd-N7N" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.25" id="sOu-XQ-j6e"/>
                                 </constraints>
                             </view>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4LU-hf-b20" customClass="DoodlePad" customModule="MyDoodle" customModuleProvider="target">
@@ -200,7 +223,7 @@
                             <constraint firstItem="g4T-af-ZCA" firstAttribute="leading" secondItem="kas-ZS-NPt" secondAttribute="leading" constant="5" id="uwo-u8-LDr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eNx-vW-P57"/>
+                    <navigationItem key="navigationItem" title="Drawing Pad" id="eNx-vW-P57"/>
                     <connections>
                         <outlet property="buttonView" destination="g4T-af-ZCA" id="72X-9f-n3a"/>
                         <outlet property="clearImageButton" destination="Ebx-pw-ilr" id="DcP-Dq-kXk"/>

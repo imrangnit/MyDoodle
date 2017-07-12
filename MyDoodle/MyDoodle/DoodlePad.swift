@@ -20,12 +20,20 @@ class DoodlePad: UIImageView {
     var drawingLineWidth:CGFloat = 10
     var drawingLineColor:UIColor = UIColor.red
     var delegate:DoodlePadProtocol?
+    var arrImages:[UIImage?]!
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        arrImages = Array()
+    }
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
@@ -46,6 +54,19 @@ class DoodlePad: UIImageView {
         image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
+//        undoManager?.registerUndo(withTarget: self, handler: {(customObject:AnyObject)->Void in
+//        
+//        
+//        })
+        
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        
+        arrImages.append(image)
+        
     }
     
     func drawUserStroke(to context:CGContext?, with touch:UITouch) -> Void {
@@ -59,6 +80,46 @@ class DoodlePad: UIImageView {
         context?.move(to: CGPoint(x: previousLocation.x, y: previousLocation.y))
         context?.addLine(to: CGPoint(x: currentLocation.x, y: currentLocation.y))
         context?.strokePath()
+        
+        
+        
+        
+        
+    }
+    
+    func removeImage(image:UIImage?) -> Void {
+        
+        var img = image
+        img = nil
+        
+
+    }
+    
+    func unDo() -> Void {
+        
+//        undoManager?.undo()
+        
+        if arrImages.count > 0{
+            
+            if arrImages.count >= 2{
+                
+                image = arrImages[arrImages.count - 2]
+                
+            }else if arrImages.count == 1{
+            
+                image = nil
+            
+            }else{
+            
+                image = nil
+            }
+            
+            
+            arrImages.remove(at: arrImages.count - 1)
+            
+            
+        }
+        
     }
     
 
