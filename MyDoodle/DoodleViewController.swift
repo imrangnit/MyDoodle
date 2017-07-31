@@ -23,6 +23,7 @@ class DoodleViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var clearImageButton: UIButton!
     @IBOutlet weak var shareImageButton: UIButton!
+    @IBOutlet weak var eraseButton: UIButton!
     
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var doodlePad: DoodlePad!
@@ -65,6 +66,10 @@ class DoodleViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             
         })
         
+        let pangesture = UIPanGestureRecognizer(target: self, action: #selector(doErase(withGesture:)))
+        eraseButton.addGestureRecognizer(pangesture)
+        
+
         
         // Do any additional setup after loading the view.
     }
@@ -204,6 +209,14 @@ class DoodleViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     }
     
     //MARK: - UIViewContoller Methods
+    
+    func doErase(withGesture gesture:UIPanGestureRecognizer) -> Void {
+        
+        let translation = gesture.translation(in: doodlePad)
+        gesture.view!.center = CGPoint(x: gesture.view!.center.x + translation.x, y: gesture.view!.center.y + translation.y)
+        gesture.setTranslation(CGPoint.zero, in: doodlePad)
+        
+    }
     
     func onPhotoAction(_ alertActionType:UIImagePickerControllerSourceType, _ sender:Any) -> Void {
         

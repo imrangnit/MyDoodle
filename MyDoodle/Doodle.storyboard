@@ -22,11 +22,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4LU-hf-b20" customClass="DoodlePad" customModule="MyDoodle" customModuleProvider="target">
+                                <rect key="frame" x="5" y="129" width="365" height="423"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4T-af-ZCA">
                                 <rect key="frame" x="5" y="69" width="365" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jp1-sd-N7N">
-                                        <rect key="frame" x="0.0" y="5" width="91.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="5" width="73" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="VzD-FY-iLk"/>
                                         </constraints>
@@ -37,7 +41,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DS0-Vg-Mlp">
-                                        <rect key="frame" x="91.5" y="5" width="91.5" height="40"/>
+                                        <rect key="frame" x="73" y="5" width="73" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0Pg-Gd-p3n"/>
                                         </constraints>
@@ -48,7 +52,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebx-pw-ilr">
-                                        <rect key="frame" x="183" y="5" width="91.5" height="40"/>
+                                        <rect key="frame" x="146" y="5" width="73" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="QHh-k9-Wl7"/>
                                         </constraints>
@@ -59,7 +63,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoC-cQ-PTD">
-                                        <rect key="frame" x="274.5" y="5" width="91.5" height="40"/>
+                                        <rect key="frame" x="219" y="5" width="73" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="xYz-v0-Mh0"/>
                                         </constraints>
@@ -69,28 +73,38 @@
                                             <action selector="shareImage:" destination="iue-a5-Kw5" eventType="touchUpInside" id="Y7U-2g-7lQ"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoW-cO-xzl">
+                                        <rect key="frame" x="292" y="5" width="73" height="40"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="SN1-PS-2lw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Erase">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="DS0-Vg-Mlp" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="0Yn-ta-ILA"/>
+                                    <constraint firstItem="ZoW-cO-xzl" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="2dU-WC-9fG"/>
                                     <constraint firstItem="jp1-sd-N7N" firstAttribute="leading" secondItem="g4T-af-ZCA" secondAttribute="leading" id="4aj-5c-TWo"/>
-                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.25" id="5Bc-it-PBp"/>
+                                    <constraint firstItem="AoC-cQ-PTD" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.2" id="5Bc-it-PBp"/>
+                                    <constraint firstItem="ZoW-cO-xzl" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.2" id="5el-77-YmL"/>
                                     <constraint firstAttribute="height" constant="50" id="6oq-UY-h4T"/>
                                     <constraint firstItem="AoC-cQ-PTD" firstAttribute="leading" secondItem="Ebx-pw-ilr" secondAttribute="trailing" id="9ca-04-nqP"/>
+                                    <constraint firstItem="ZoW-cO-xzl" firstAttribute="leading" secondItem="AoC-cQ-PTD" secondAttribute="trailing" id="LN8-me-GWu"/>
                                     <constraint firstItem="Ebx-pw-ilr" firstAttribute="leading" secondItem="DS0-Vg-Mlp" secondAttribute="trailing" id="NNn-dT-dFp"/>
-                                    <constraint firstItem="DS0-Vg-Mlp" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.25" id="QLc-Uq-XYj"/>
+                                    <constraint firstItem="DS0-Vg-Mlp" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.2" id="QLc-Uq-XYj"/>
                                     <constraint firstItem="Ebx-pw-ilr" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="Sg9-1e-bfM"/>
-                                    <constraint firstItem="Ebx-pw-ilr" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.25" id="U1Z-yY-eSh"/>
+                                    <constraint firstItem="Ebx-pw-ilr" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.2" id="U1Z-yY-eSh"/>
                                     <constraint firstItem="DS0-Vg-Mlp" firstAttribute="leading" secondItem="jp1-sd-N7N" secondAttribute="trailing" id="db5-UI-Ll6"/>
                                     <constraint firstItem="AoC-cQ-PTD" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="jYm-lX-aiE"/>
                                     <constraint firstItem="jp1-sd-N7N" firstAttribute="top" secondItem="g4T-af-ZCA" secondAttribute="top" constant="5" id="k3S-Iq-RAV"/>
-                                    <constraint firstItem="jp1-sd-N7N" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.25" id="sOu-XQ-j6e"/>
+                                    <constraint firstItem="jp1-sd-N7N" firstAttribute="width" secondItem="g4T-af-ZCA" secondAttribute="width" multiplier="0.2" id="sOu-XQ-j6e"/>
                                 </constraints>
                             </view>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4LU-hf-b20" customClass="DoodlePad" customModule="MyDoodle" customModuleProvider="target">
-                                <rect key="frame" x="5" y="129" width="365" height="423"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrH-Ov-mAr">
                                 <rect key="frame" x="137.5" y="290.5" width="100" height="100"/>
                                 <constraints>
@@ -230,6 +244,7 @@
                         <outlet property="colorCollectionView" destination="Ubh-eI-WYx" id="m55-AO-CaN"/>
                         <outlet property="colorsView" destination="ZPR-U7-f0j" id="xmt-wI-6RO"/>
                         <outlet property="doodlePad" destination="4LU-hf-b20" id="5TE-Bs-S0R"/>
+                        <outlet property="eraseButton" destination="ZoW-cO-xzl" id="bdQ-9r-lhl"/>
                         <outlet property="lineWidthLabel" destination="IZb-3d-Abf" id="A01-Fj-FtK"/>
                         <outlet property="lineWidthMinusButton" destination="adM-Vy-W6P" id="tak-JV-2vf"/>
                         <outlet property="lineWidthPlusButton" destination="hPf-wS-7Rf" id="eml-vS-xdT"/>
